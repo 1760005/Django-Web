@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <!-- Basic Page Needs -->
+        <meta charset="utf-8">
+        <title>
+            {% if  base_information %}
+                {{ base_information.last_name }}
+            {% else %}
+                unknown
+            {% endif %}
+        </title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/animate.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/layout.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/responsive.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/ie7.css' %}">
+        <![endif]-->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <!-- Primary Page Layout -->
+
+        <!-- Start  Mobile & Tab Header-->
+        <div class="rzm_mobile_header col-sm-12 col-xs-12 hidden-lg hidden-md">
+            <div class="mob_nav  navbar navbar-inverse navbar-fixed-top" id="slide-nav">
+        	    <div class="navbar-header">
+                    <a class="navbar-toggle"></a>
+                </div>
+                <div id="slidemenu" class="navbar-default navbar-inverse">
+                    <ul class="nav navbar-nav primary">
+                        <li class="first"><a href="#about">About </a></li>
+                        <li><a href="#Projecct">Projecct</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="https://www.topcv.vn/xem-cv/953991ace4431264b8dacd95ee8f9f2e" target="_blank" >Download CV</a></li>
+                        <li><a href="#home" class="go_to_top">Top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End  Mobile & Tab Header-->
+
+        <!-- Start outside-header -->
+        <div class="rzm_outside-header" id="home">
+        </div>
+        <!-- End outside-header -->
+
+        <!-- Start Outside Main -->
+        <div class="outside-main" id="page-content">
+            <!-- Start Main Container -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 rzm_profile_nav">
+                        <div class="sticky">
+                        <div class="logo">
+                            <img src="{% static 'img/profile.jpg' %}" alt="profile_photo" class="img-responsive img-circle">
+                        </div>
+                        <!-- Start primary navigation -->
+                        <div class="rzm_main_menu hidden-sm hidden-xs">
+                            <ul class="primary">
+                                <li class="first"><a href="#about">About </a></li>
+                                <li><a href="#Projecct">Project</a></li>
+                                <li><a href="#experience">Experience</a></li>
+                                <li><a href="https://www.topcv.vn/xem-cv/355798fc30bb7bf8bed0656af59519e6" target="_blank" >Download CV</a></li>
+                                <li><a href="#home" class="go_to_top">Top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></li>
+
+                            </ul>
+                            <div class="social_nav">
+                                <a target="_blank" href="https://www.hackerrank.com/ndtanh_17ck1"><i class="fab fa-hackerrank" aria-hidden="true"></i></a>
+                                <a target="_blank" href="https://github.com/1760005"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a target="_blank" href="https://www.facebook.com/tuananh23041999/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a target="_blank" href="https://www.instagram.com/anh_2304/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Primary navigation -->
+                        </div>
+                    </div>
+
+                <div class="clearfix"></div>
+                <!-- Start Profile Section -->
+                <section id = "about" class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3 first profile rez_about">
+                <div class="rez_top_title">
+                    <h1 >
+                        Hi my name is
+                        {% if  base_information.last_name %}
+                            {{base_information.last_name }}
+                        {% else %}
+                            unknown
+                        {% endif %}
+                        <br>
+                        [{{ apply_to.name }}]
+                    </h1>
+                </div>
+                <div style="margin-top: 3vw" class="about_info">
+                    <p>Full Name: {{ base_information.first_name }} {{ base_information.last_name }}</p>
+                    <p>Address: {{ base_information.address }}</p>
+                    <p>Gender: {{ base_information.gender }}</p>
+                    <p>Phone: {{ base_information.phone }}</p>
+                    <p>Email: {{ base_information.email }}</p>
+                </div>
+
+
+                {% if  base_information.about %}
+                <h1 class="title">About Me</h1>
+                <!-- Start About section -->
+                <div class="col-md-12 col-sm-12 col-xs-12  omega  about">
+                    <p class="about_info">
+                        {{ base_information.about }}
+                        <br>
+                        I want to {{ base_information.career_objectives }}
+                    </p>
+                </div>
+                <!-- End About -->
+                </section >
+                <!-- End About section -->
+                {% endif %}
+
+                {% if skills %}
+                    <section class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3" >
+                        <h1 class="title">Skill</h1>
+                        {% for item in skills %}
+                            <pre><strong>{{ item.skill_name }} </strong> {{ item.content  }}</pre>
+                        {% endfor %}
+                    </section>
+                {% endif %}
+
+
+                <!-- Start Experience section -->
+                <section class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3 rzm_experience" id="experience">
+                    <h1 class="title">Education</h1>
+                    {% if educations %}
+                        {% for item in educations %}
+                        <div id="rzm_timeline">
+                        <div class="row rzm_timeline-movement">
+                            <div class="rzm_timeline-badge active_box">
+                            </div>
+                            <div class="col-sm-6 col-xs-12 rzm_timeline-item">
+                                <div class="row">
+                                    <div class="col-sm-11 col-xs-12">
+                                        <div class="rzm_timeline-panel credits">
+                                            <ul class="rzm_timeline-panel-ul">
+                                                <li>{{ item.start_date }} - {{ item.end_date }} </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12  rzm_timeline-item">
+                                <div class="row">
+                                    <div class="col-sm-offset-1 col-sm-11 col-xs-12">
+                                        <div class="rzm_timeline-panel debits">
+                                            <ul class="rzm_timeline-panel-ul active">
+                                                <li><span class="rzm_importo">{{ item.school }}</span></li>
+                                                <li><span class="rzm_causale">{{ item.major }} </span></li>
+                                                {% if item.GPD %}
+                                                <li><span class="rzm_causale">GPD: {{ item.GPD }} </span></li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--due -->
+                    </div>
+                        {% endfor %}
+                    {% endif %}
+                </section>
+                <!-- End Experience section -->
+                </div>
+
+                {% if certifications %}
+                <!-- Start Certification section -->
+                <section class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3 rzm_experience" id = "certifications">
+                    <h1 class="title">Certification</h1>
+                    <div class="container-fluid">
+                        {% for item in certifications %}
+                            <pre>{{ item.time.year }}       {{ item.name }}
+                            </pre>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </section>
+                <!-- End Certification section -->
+                {% endif %}
+
+                <!-- Start Portfolio section -->
+                <section class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3 rzm_portfolio" id="Projecct">
+                    <h1 class="title">Project</h1>
+                    {% if projects %}
+
+                    <div class="container-fluid">
+                        <table class="table  table-bordered" style="font-family: monospace">
+                          <thead>
+                            <tr>
+                              <th scope="col">Time</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Detail</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {%  for item in projects %}
+                            <tr>
+                              <td>{{ item.time_start }}</td>
+                              <td>{{ item.name }}</td>
+                              <td style="text-align: center">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#MS_{{ item.id }}">Detail</button></td>
+                                <div class="modal" tabindex="-1" id = "MS_{{ item.id }}" role="dialog" style="font-family: monospace">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title">{{ item.name}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                          <div class="row">
+                                              <div class="col-lg-4">
+                                                  <p>
+                                                      <strong>From: </strong> {{ item.time_start }}
+                                                      <br>
+                                                      <strong>To: </strong>{{ item.time_end }}
+                                                  </p>
+                                              </div>
+                                                <div class="col-lg-8">
+                                                    <p><strong>Name:</strong> {{ item.name }}</p>
+                                                    <p><strong>Position:</strong> {{ item.position }}</p>
+                                                    <p><strong>Skill:</strong> {{ item.skill }}</p>
+                                                </div>
+                                          </div>
+                                          <p>{{ item.content }}</p>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </tr>
+                          {% endfor %}
+                          </tbody>
+                        </table>
+                        {% else %}
+                        <p>Data is NULL</p>
+                    {% endif %}
+                    </div>
+                </section>
+                <!-- End Profile Section-->
+
+                <!-- Start Activities section -->
+                {% if activities %}
+                    <section class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3" >
+                        <h1 class="title">Activities</h1>
+                        {% for item in activities %}
+                        <div class="row" style="font-family: monospace">
+                            <div class="col-lg-3">
+                                <h5>{{item.time}}</h5>
+                            </div>
+                            <div class="col-lg-8">
+                                <strong>Name:</strong> {{ item.name }}
+                                <br>
+                                <strong>Place:</strong> {{ item.place }}
+                                <br>
+                                <strong>Position:</strong> {{ item.position }}
+                                <br>
+                                <strong>Mission:</strong> {{ item.mission }}
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        {% endfor %}
+                    </section>
+                {% endif %}
+                <!-- End Activities Section-->
+
+                <!-- Start Interest section -->
+                {% if interests  %}
+                    <section class="col-md-9 col-sm-12 col-xs-12 col-md-offset-3" >
+                        <h1 class="title">Interest</h1>
+                        <p style="font-family: monospace">{{ interests.content }}</p>
+                    </section>
+                {% endif %}
+                <!-- End Interest Section-->
+                </div>
+            </div>
+            <!-- End Main Container-->
+        </div>
+        <!-- End Outside Main-->
+
+        <!-- Start footer section -->
+        <section class="col-md-12 col-sm-12 col-xs-12 rzm_footer container-fluid" >
+            <div class="container" >
+                <h4>Find Me on</h4>
+                <div class="rez_footer_social" >
+                    <a target="_blank" href="https://www.hackerrank.com/ndtanh_17ck1"><i class="fab fa-hackerrank" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://github.com/1760005"><i class="fa fa-github" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/tuananh23041999/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/anh_2304/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+                <p>©Nguyễn Đoàn Tuấn Anh.</p>
+            </div>
+        </section>
+        <!-- End footer section -->
+
+        <!-- JS -->
+        educations<script src="{% static 'javascripts/jquery.tipsy.js' %}"></script>
+
+        <script src="{% static  'javascripts/jquery.scrollTo-min.js' %}" ></script>
+        <script src="{% static 'javascripts/jquery.localscroll-min.js' %}" ></script>
+        <script src="{% static 'javascripts/jquery.easing.1.3.js' %}"></script>
+        <script src="{% static 'javascripts/script.js' %} "></script>
+    </body>
+</html>
